@@ -1,0 +1,22 @@
+[
+  {
+    "id": "8fe10c5d-7fbe-4233-aa01-342b7a90765f",
+    "label": "UTM Content",
+    "key": "utm_content"
+  },
+  {
+    "id": "a905ad06-3711-4db0-91ce-85d1e2899135 ",
+    "label": "UTM Source",
+    "key": "utm_source"
+  },
+  {
+    "id": "cf4eecf1-a96e-47da-9ad4-a51328211f00",
+    "label": "UTM Campaign",
+    "key": "utm_campaign"
+  },
+  {
+    "id": "afb6c883-6788-4fec-b05b-e064d80b4ee4",
+    "label": "UTM Medium",
+    "key": "utm_medium"
+  }
+]
