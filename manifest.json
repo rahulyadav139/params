@@ -1,0 +1,18 @@
+{
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "name": "Palasio Params",
+  "description": "This is a Chrome extension built with React and TypeScript",
+  "action": {
+    "default_title": "Palasio Params",
+    "default_popup": "index.html"
+  },
+  "permissions": [
+    "activeTab",
+    "cookies",
+    "declarativeContent",
+    "scripting",
+    "storage",
+    "tabs"
+  ]
+}

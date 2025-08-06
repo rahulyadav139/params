@@ -16,6 +16,13 @@ import { v4 as uuid } from 'uuid';
 import { regex } from './utils';
 import utmParameters from './assets/utm-parameters.json';
 
+async function getCurrentTab() {
+  let queryOptions = { active: true, lastFocusedWindow: true };
+  // `tab` will either be a `tabs.Tab` instance or `undefined`.
+  let [tab] = await chrome.tabs.query(queryOptions);
+  return tab;
+}
+
 interface IQueryParams {
   id: string;
   key: string;
@@ -27,6 +34,7 @@ function App() {
   const [linkWithParams, setLinkWithParams] = useState<string>('');
   const [isFormValid, setIsFormValid] = useState<boolean>(true);
   const [queryParams, setQueryParams] = useState<IQueryParams[]>([]);
+  const [tab, setTab] = useState<any>(null);
 
   const handleAddQueryParam = (id?: string, key?: string): void => {
     setIsFormValid(true);
@@ -35,6 +43,8 @@ function App() {
       ...prev,
       { id: id ?? tempId, key: key ?? '', value: '' },
     ]);
+
+    getCurrentTab().then(data => setTab(data));
   };
 
   const handleDeleteQueryParam = (id: string) => {
@@ -81,7 +91,11 @@ function App() {
 
   return (
     <>
-      <Box component="main" sx={{ maxWidth: 1200, mx: 'auto', p: 3 }}>
+      <Box
+        component="main"
+        sx={{ maxWidth: 1200, minWidth: 450, mx: 'auto', p: 3 }}
+      >
+        {tab && <pre>{JSON.stringify(tab)}</pre>}
         <Typography gutterBottom variant="body1" sx={{ opacity: 0.5 }}>
           Paste your link here
         </Typography>
